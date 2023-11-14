@@ -9,6 +9,11 @@ pipeline {
 						script {
 							def current_user = sh(script: 'whoami', returnStdout: true).trim()
 							echo "Current user: ${current_user}"
+
+							// Print Docker information
+                    		sh 'docker info'
+                    		sh 'docker version'
+                    		sh 'docker images'
 						}
 					}
             }
