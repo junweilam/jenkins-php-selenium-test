@@ -3,6 +3,13 @@ pipeline {
 	stages {
 		stage('Integration UI Test') {
 			parallel {
+				stage('Check User') {
+					steps {
+						script {
+							def current_user = sh(script: 'whoami', returnStdout: true).trim()
+							echo "Current user: ${current_user}"
+						}
+            }
 				stage('Deploy') {
 					agent any
 					steps {
