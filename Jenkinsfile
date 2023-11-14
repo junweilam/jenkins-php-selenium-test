@@ -22,7 +22,7 @@ pipeline {
 					steps {
 						script{
 							def scriptPath = "${WORKSPACE}/jenkins/scripts/deploy.sh"
-							def phpPath = "${WORKSPACE}/src"
+							def phpPath = "/var/jenkins_home/workspace"
 							sh "chmod -R 755 ${phpPath}"
 							sh "chmod +x ${scriptPath}"
 							sh "ls -l ${scriptPath}"						
