@@ -22,10 +22,9 @@ pipeline {
 					steps {
 						sh 'pwd'
 						sh 'chmod +x ./jenkins/scripts/deploy.sh'
-						sh 'sudo apt-get install dos2unix'
 						sh 'ls -l ./jenkins/scripts'
 						sh 'ls -l ./jenkins/scripts/deploy.sh'
-						sh 'dos2unix ./jenkins/scripts/deploy.sh'
+						sh './jenkins/scripts/deploy.sh'
 						input message: 'Finished using the web site? (Click "Proceed" to continue)'
 						sh './jenkins/scripts/kill.sh'
 					}
