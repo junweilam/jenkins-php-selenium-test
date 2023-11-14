@@ -20,12 +20,15 @@ pipeline {
 				stage('Deploy') {
 					agent any
 					steps {
-						def scriptPath = "${WORKSPACE}/jenkins/scripts/deploy.sh"
-            			sh "chmod +x ${scriptPath}"
-            			sh "ls -l ${scriptPath}"
-            			sh "${scriptPath}"
-						input message: 'Finished using the web site? (Click "Proceed" to continue)'
-						sh './jenkins/scripts/kill.sh'
+						script{
+							def scriptPath = "${WORKSPACE}/jenkins/scripts/deploy.sh"
+							sh "chmod +x ${scriptPath}"
+							sh "ls -l ${scriptPath}"
+							sh "${scriptPath}"
+							input message: 'Finished using the web site? (Click "Proceed" to continue)'
+							sh './jenkins/scripts/kill.sh'
+						}
+						
 					}
 				}
 				stage('Headless Browser Test') {
