@@ -20,11 +20,10 @@ pipeline {
 				stage('Deploy') {
 					agent any
 					steps {
-						sh 'pwd'
-						sh 'chmod +x ./jenkins/scripts/deploy.sh'
-						sh 'ls -l ./jenkins/scripts'
-						sh 'ls -l ./jenkins/scripts/deploy.sh'
-						sh './jenkins/scripts/deploy.sh'
+						def scriptPath = "${WORKSPACE}/jenkins/scripts/deploy.sh"
+            			sh "chmod +x ${scriptPath}"
+            			sh "ls -l ${scriptPath}"
+            			sh "${scriptPath}"
 						input message: 'Finished using the web site? (Click "Proceed" to continue)'
 						sh './jenkins/scripts/kill.sh'
 					}
