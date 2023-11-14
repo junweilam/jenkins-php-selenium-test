@@ -9,6 +9,7 @@ pipeline {
 							def current_user = sh(script: 'whoami', returnStdout: true).trim()
 							echo "Current user: ${current_user}"
 						}
+					}
             }
 				stage('Deploy') {
 					agent any
