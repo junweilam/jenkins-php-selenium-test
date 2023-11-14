@@ -25,7 +25,7 @@ pipeline {
 							sh "chmod +x ${scriptPath}"
 							sh "ls -l ${scriptPath}"
 							sh "cat ${scriptPath}"
-							sh "bash ${scriptPath}"
+							sh "dos2unix ${scriptPath}"
 							input message: 'Finished using the web site? (Click "Proceed" to continue)'
 							sh './jenkins/scripts/kill.sh'
 						}
