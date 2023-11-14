@@ -22,8 +22,8 @@ pipeline {
 					steps {
 						script{
 							def scriptPath = "${WORKSPACE}/jenkins/scripts/deploy.sh"
-							def phpPath = "${WORKSPACE}"
-							sh "chmod -R 2750 ${phpPath}"
+							def phpPath = "${WORKSPACE}/src/test/java/mycompany/app"
+							sh "chmod -R 755 ${phpPath}"
 							sh "chmod +x ${scriptPath}"
 							sh "ls -l ${scriptPath}"						
                     		sh "tr -d '\r' < ${scriptPath} > ${scriptPath}.tmp && mv ${scriptPath}.tmp ${scriptPath}"
