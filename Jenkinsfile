@@ -24,7 +24,7 @@ pipeline {
 							def scriptPath = "${WORKSPACE}/jenkins/scripts/deploy.sh"
 							sh "chmod +x ${scriptPath}"
 							sh "ls -l ${scriptPath}"						
-							sh "dos2unix ${scriptPath}"
+                    		sh "tr -d '\r' < ${scriptPath} > ${scriptPath}.tmp && mv ${scriptPath}.tmp ${scriptPath}"
 							sh "cat ${scriptPath}"
 							input message: 'Finished using the web site? (Click "Proceed" to continue)'
 							sh './jenkins/scripts/kill.sh'
