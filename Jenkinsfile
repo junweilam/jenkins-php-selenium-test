@@ -21,6 +21,7 @@ pipeline {
 					agent any
 					steps {
 						sh 'pwd'
+						sh 'chmod +x ./jenkins/scripts/deploy.sh'
 						sh 'ls -l ./jenkins/scripts'
 						sh 'ls -l ./jenkins/scripts/deploy.sh'
 						sh './jenkins/scripts/deploy.sh'
