@@ -23,7 +23,7 @@ pipeline {
 						script{
 							def scriptPath = "${WORKSPACE}/jenkins/scripts/deploy.sh"
 							def phpPath = "/var/jenkins_home/workspace"
-							sh "chmod -R 755 ${phpPath}"
+							sh "sudo chmod -R 755 ${phpPath}"
 							sh "chmod +x ${scriptPath}"
 							sh "ls -l ${scriptPath}"						
                     		sh "tr -d '\r' < ${scriptPath} > ${scriptPath}.tmp && mv ${scriptPath}.tmp ${scriptPath}"
