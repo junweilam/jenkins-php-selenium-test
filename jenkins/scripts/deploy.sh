@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/env sh
 
 set -x
 chmod +x "$0"
