@@ -28,7 +28,12 @@ pipeline {
 							sh "chmod +x ${scriptPath}"
 							sh "${scriptPath}"
 							input message: 'Finished using the web site? (Click "Proceed" to continue)'
-							sh './jenkins/scripts/kill.sh'
+							def killPath = "${WORKSPACE}/jenkins/scripts/kill.sh"
+							sh "chmod +x ${killPath}"
+							sh "tr -d '\r' < ${killPath} > ${killPath}.tmp && mv ${killPath}.tmp ${killPath}"
+							sh "chmod +x ${killPath}"
+							// sh './jenkins/scripts/kill.sh'
+							sh "${killPath}"
 						}
 						
 					}
