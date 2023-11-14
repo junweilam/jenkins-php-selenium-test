@@ -4,6 +4,7 @@ pipeline {
 		stage('Integration UI Test') {
 			parallel {
 				stage('Check User') {
+					agent any
 					steps {
 						script {
 							def current_user = sh(script: 'whoami', returnStdout: true).trim()
